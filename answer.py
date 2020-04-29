@@ -10,7 +10,7 @@ def check_url(url: str):
 
 def create_answer(url: str, language: str):
     if not check_url(url):
-        return create_invalid_link_message(language)
+        return create_hello_message(language)
     else:
         response = requests.post('https://quex.tech/api/employee/repository/analyze/before',
                                  json={
@@ -34,13 +34,6 @@ def create_hello_message(language: str):
         return "Hello! I can analyze your source code on github and find mistakes and vulnerabilities of it." \
                "After that I’ll assign it's rating based on millions of analyzed repositories.\n" \
                "Enter a link to your public repository (Example: https://github.com/...)"
-
-
-def create_invalid_link_message(language: str):
-    if language == 'ru':
-        return 'Ссылка некорректна. Попробуй другую.'
-    else:
-        return 'The link is invalid. Try another one.'
 
 
 def create_wrong_message(language: str):
