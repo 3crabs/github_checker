@@ -1,10 +1,8 @@
 import json
-
 import telebot
-
 from answer import create_answer, create_hello_message
 
-with open('bot.json', 'r') as file:
+with open('tg.json', 'r') as file:
     data = file.read()
 obj = json.loads(data)
 bot = telebot.TeleBot(obj['token'])
